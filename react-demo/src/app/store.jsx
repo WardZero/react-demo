@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-//import { naturalAreaListReducer } from "./components/NaturalAreaList/naturalAreaListSlice.jsx"
-import { userInputReducer } from "./components/UserInput/userInputSlice.jsx";
+import userInputReducer from "./components/UserInput/userInputSlice.jsx";
+import dropdownReducer from "./components/NaturalAreaList/naturalAreaListSlice.jsx";
+import counterReducer from "./components/Counter/counterSlice.jsx"
 
 export default configureStore({
     reducer: {
-        userInputReducer,
-        //naturalAreaListReducer: naturalAreaListReducer,
-        
+        userInput: userInputReducer,
+        dropdown: dropdownReducer,        
+        counter: counterReducer,
     },
 })

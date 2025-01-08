@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import User from "../../model/User";
 
 export const userInputSlice = createSlice({
-    name: 'user',
+    name: 'userInput',
     initialState: {
-        user: new User()
+        userInput: ''
     },
     reducers: {
         updateInputValue: (value) => {
@@ -21,4 +21,4 @@ export const userInputSlice = createSlice({
 
 export const { updateInputValue, addUser, deleteUser } = userInputSlice.actions;
 
-export const userInputReducer = userInputSlice.reducer;
+export default userInputSlice.reducer;

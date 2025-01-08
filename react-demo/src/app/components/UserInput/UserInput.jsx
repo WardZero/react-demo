@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { NaturalAreaList } from "../NaturalAreaList/NaturalAreaList";
 import { useDispatch } from "react-redux";
 
-export function UserInput() {
+export function UserInput()  {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
 
@@ -16,9 +15,7 @@ export function UserInput() {
 
     return (
         <div>
-            <span>Name: <input id="userName" type="text" value={inputValue} onChange={handleChange} /></span>
-
-            <NaturalAreaList />
+            <span>Name: <input id="userName" type="text" value={inputValue} onChange={handleChange} /></span>            
 
             <button onClick={handleSubmit}>Save</button>
 
