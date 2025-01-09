@@ -1,14 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
 import User from "../../model/User";
 
 export const userInputSlice = createSlice({
     name: 'userInput',
     initialState: {
-        userInput: ''
+        userName: '',
+        naturalArea: '',
     },
     reducers: {
-        updateInputValue: (value) => {
-            payload: value
+        updateUserName: (state, action) => {            
+            state = action.payload;           
+        },
+        updateNaturalArea: (state, action) => {
+            state = action.payload;
         },
         addUser: () => {
 
@@ -19,6 +24,6 @@ export const userInputSlice = createSlice({
     }
 })
 
-export const { updateInputValue, addUser, deleteUser } = userInputSlice.actions;
+export const { updateUserName, updateNaturalArea, addUser, deleteUser } = userInputSlice.actions;
 
 export default userInputSlice.reducer;

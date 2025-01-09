@@ -1,27 +1,40 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { NaturalAreaList } from '../NaturalAreaList/NaturalAreaList'
+import { updateUserName, updateNaturalArea } from "./userInputSlice";
 
 export function UserInput()  {
-    const [inputValue, setInputValue] = useState('');
+    const [userName, setUserName] = useState('');
     const dispatch = useDispatch();
+    const selectedNaturalArea = useSelector(state => state.dropdown.selectedValue);
 
     const handleChange = (event) => {
-        setInputValue(event.target.value);
+        setUserName(event.target.value);
     };
 
-    const handleSubmit = () => {
-        dispatch(updateInputValue(inputValue));
+    const handleSubmit = () => {           
+        dispatch(updateUserName(userName));
+        dispatch(updateNaturalArea(selectedNaturalArea));
     }
 
     return (
         <div>
-            <span>Name: <input id="userName" type="text" value={inputValue} onChange={handleChange} /></span>            
+            <div>
+                <span>Name: <input id="userName" type="text" value={userName} onChange={handleChange} /></span>
+                <p>
+                    { userName }
+                </p>
+            </div>
+            <div>
+                <NaturalAreaList />  
+            </div>
 
-            <button onClick={handleSubmit}>Save</button>
-
-            <p>
-                { inputValue }
-            </p>
+                     
+            <div>
+                <button onClick={handleSubmit}>Save</button>
+            </div>
+            
+            
         </div>
     );
 }
